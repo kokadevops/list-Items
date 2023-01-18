@@ -1,25 +1,20 @@
 import React, { useState } from "react";
+import ListItems from "./ListItems";
 
-const Content = () => {
-    const [products, setProducts] = useState([
-        {
-            title: "product 1",
-            id: 1,
-            checked: true,
-        },
-        {
-            title: "product 2",
-            id: 2,
-            checked: false,
-        },
-        {
-            title: "product 3",
-            id: 3,
-            checked: false,
-        },
-    ]);
-
-    return <main></main>;
+const Content = ({ products, handleDelete, handleChange }) => {
+    return (
+        <main>
+            {products.length ? (
+                <ListItems
+                    products={products}
+                    handleDelete={handleDelete}
+                    handleChange={handleChange}
+                />
+            ) : (
+                <h4>No products</h4>
+            )}
+        </main>
+    );
 };
 
 export default Content;
